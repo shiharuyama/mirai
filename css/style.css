@@ -1,0 +1,337 @@
+/* 共通部分の設定と、リンク先に共通するヘッダーフッター入り */
+
+
+/* 全体のリセット。ノーマライズcss想定*/
+html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+dl,
+dt,
+dd {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ---------------------------------------------------------------本体で共通の設定 */
+
+/* ------使用カラーの定義 */
+:root {
+    --color-primary: 81 197 255;
+    --color-secondary: 116 116 116;
+    --color-secondary-pale: 227 227 227;
+    --color-bg: 255 255 255;
+    --color-text: 0 0 0;
+
+    /* セクションタイトルの色替え用 */
+    --sub-title-color-primary: 81 197 255;
+    --sub-title-color-secondary: 116 116 116;
+}
+
+/* 使用カラーをHTMLテキストに直入れ用 */
+.text-primary {
+    color: rgb(var(--color-primary));
+}
+
+.text-secondary {
+    color: rgb(var(--color-secondary));
+}
+
+
+/* ------ベース系の設定 */
+body {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 400;
+    font-family: "Noto Sans JP", sans-serif;
+    line-break: strict;
+    background: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+}
+
+a {
+    display: block;
+    cursor: pointer;
+}
+
+/* ------タイポグラフィ */
+.text-hero {
+    font-size: 48px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+}
+
+.text-heading {
+    font-size: 32px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.text-subheading {
+    font-size: 22px;
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+/* .text-body分はベース系で設定済み */
+
+.text-small {
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+}
+
+.text-caption {
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+}
+
+
+/* ------------------------------------------------------------------------------ */
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------コンポーネント素材の設定 */
+/* サブタイトル */
+.sub-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-title h2 {
+    color: rgb(var(--sub-title-color-secondary));
+    /* 下線用 */
+    display: inline-block;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.sub-title h2::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: rgb(var(--sub-title-color-primary));
+}
+
+.sub-title p {
+    color: rgb(var(--sub-title-color-primary));
+    line-height: 1.2;
+}
+
+/* ▶詳しく見る/▶もっと見る */
+.more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 2px solid currentColor;
+    border-radius: 12px;
+    text-decoration: none;
+    color: rgb(var(--color-primary));
+    transition: 0.3s;
+}
+
+.more-link:hover {
+    background: rgb(var(--color-primary));
+    color: rgb(var(--color-bg));
+}
+
+/* ------------------------------------------------------------------------------ */
+
+
+
+
+
+
+/* ------ヘッダー */
+header {
+    width: 100%;
+    height: 80px;
+}
+
+
+.header-inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header-title {
+    padding-left: 100px;
+}
+
+
+.header-contact-wrap {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+}
+
+
+.header-contact {
+    height: 100%;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(var(--color-primary));
+    color: rgb(var(--color-bg));
+}
+
+.header-sns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-sns a {
+    display: flex;
+    align-items: center;
+}
+
+.header-contact p {
+    text-align: center;
+    line-height: 1.4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------フッター */
+footer {
+    background-color: rgb(var(--color-primary));
+}
+
+.footer-band {
+    height: 90px;
+    position: relative;
+}
+
+.footer-rogo {
+    width: 180px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.footer-contents {
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    color: rgb(var(--color-bg));
+}
+
+.footer-sns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-sns a {
+    display: flex;
+    align-items: center;
+}
+
+.contact-button {
+    width: 300px;
+    height: auto;
+}
+
+
+
+
+
+/* --------------------------------------------------------------スマホ用 */
+@media (max-width: 768px) {
+
+    /* ------ヘッダー */
+    header {
+        height: 60px;
+    }
+
+    .header-title {
+        padding-left: 20px;
+    }
+
+    .header-sns {
+        display: none;
+    }
+
+    .header-contact {
+        padding: 0 20px;
+        font-size: 14px;
+    }
+
+
+
+
+    /* ------フッター */
+    .footer-contents {
+        padding: 40px 0;
+        gap: 20px;
+    }
+
+    .contact-button {
+        width: 220px;
+    }
+}
